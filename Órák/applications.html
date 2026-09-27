@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Az XHTML névteret adja meg; a fenti dokumentumtípus XHTML 1.0 Transitional. -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!-- A dokumentum szövegtípusát és UTF-8 karakterkódolását jelzi. -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <!-- A böngészőlap címe. -->
+  <title>Bitnami: Open Source. Simplified</title>
+  <!-- Betölti az oldalhoz tartozó Bitnami-stíluslapot. -->
+  <link href="bitnami.css" media="all" rel="Stylesheet" type="text/css" /> 
+  <!-- Betölti a dashboard közös stíluslapját a webhely gyökeréhez viszonyított útvonalról. -->
+  <link href="/dashboard/stylesheets/all.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <!-- A felső navigációs sávot körülvevő tároló. -->
+  <div class="contain-to-grid">
+    <!-- A fő navigáció eleme; a data-topbar attribútumot a kapcsolódó felületi kód használhatja. -->
+    <nav class="top-bar" data-topbar>
+      <!-- A webhely nevét és a menü kapcsolóját tartalmazó lista. -->
+      <ul class="title-area">
+        <li class="name">
+          <!-- Az Apache Friends felirat a dashboard kezdőlapjára vezet. -->
+          <h1><a href="/dashboard/index.html">Apache Friends</a></h1>
+        </li>
+        <!-- A keskeny képernyős menü kapcsolójának jelölése; működéséhez megfelelő stílus és viselkedés szükséges. -->
+        <li class="toggle-topbar menu-icon">
+          <a href="#">
+            <span>Menu</span>
+          </a>
+        </li>
+      </ul>
+
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li class="active"><a href="/applications.html">Applications</a></li>
+          <li class=""><a href="/dashboard/faq.html">FAQs</a></li>
+          <li class=""><a href="/dashboard/howto.html">HOW-TO Guides</a></li>
+          <li class=""><a target="_blank" href="/dashboard/phpinfo.php">PHPInfo</a></li>
+          <li class=""><a href="/phpmyadmin/">phpMyAdmin</a></li>
+        </ul>
+      </section>
+    </nav>
+  </div>
+  <!-- Az oldal központi tartalmának külső tárolója. -->
+  <div id="wrapper">
+    <!-- A Bitnami és az Apache Friends együttműködését bemutató bevezető blokk. -->
+    <div class="hero">
+       <!-- A rácsalapú elrendezés egy sora. -->
+       <div class="row">
+         <!-- Nagy képernyőn a tizenkét oszlopos rács teljes szélességét használó tartalom. -->
+         <div class="large-12 columns">
+            <!-- Bemutató szöveg és a Bitnami oldalára vezető hivatkozás; a target attribútum új böngészési környezetet kér. -->
+            <p>Apache Friends and Bitnami are cooperating to make dozens of open source applications available on XAMPP, for free. Bitnami-packaged applications include Wordpress, Drupal, Joomla! and dozens of others and can be deployed with one-click installers. Visit the <a href="https://bitnami.com/xampp?utm_source=bitnami&utm_medium=installer&utm_campaign=XAMPP%2BModule" target="_blank">Bitnami XAMPP page</a> for details on the currently available apps.</p><br/>
+            <!-- Hivatkozás a Bitnami XAMPP-útmutatójára. -->
+            <p>Check out our <a href="https://www.apachefriends.org/bitnami_for_xampp.html" target="_blank" >Bitnami for XAMPP Start Guide</a> for more information about the applications installed.</p>
+         </div>
+       </div>
+    </div>
+    <!-- Az alkalmazásmodulok számára fenntartott alsó tartalomterület. -->
+    <div id="lowerContainer" class="row">
+      <div id="content" class="large-12 columns">
+          <!-- @@BITNAMI_MODULE_PLACEHOLDER@@ -->
+      </div>
+    </div>
+  </div>
+  <!-- Lábléc közösségi hivatkozásokkal, további információkkal és szerzői jogi szöveggel. -->
+  <footer>
+    <!-- A rácsalapú elrendezés egy sora. -->
+    <div class="row">
+      <!-- Nagy képernyőn a tizenkét oszlopos rács teljes szélességét használó tartalom. -->
+      <div class="large-12 columns">
+        <!-- A rácsalapú elrendezés egy sora. -->
+        <div class="row">
+          <!-- Nagy képernyőn nyolc oszlopot elfoglaló láblécrész. -->
+          <div class="large-8 columns">
+            <!-- Közösségi oldalakra mutató hivatkozások listája. -->
+            <ul class="social">
+              <li class="twitter"><a href="https://twitter.com/apachefriends">Follow us on Twitter</a></li>
+              <li class="facebook"><a href="https://www.facebook.com/we.are.xampp">Like us on Facebook</a></li>
+              <li class="google"><a href="https://plus.google.com/+xampp/posts">Add us to your G+ Circles</a></li>
+            </ul>
+
+            <!-- A blog, az adatvédelmi oldal és a CDN-szolgáltató hivatkozásai. -->
+            <ul class="inline-list">
+              <li><a href="https://www.apachefriends.org/blog.html">Blog</a></li>
+              <li><a href="https://www.apachefriends.org/privacy_policy.html">Privacy Policy</a></li>
+              <li>
+                <a target="_blank" href="http://www.fastly.com/">                    CDN provided by
+                  <!-- A szolgáltató logója; a data-2x attribútum egy nagyobb felbontású kép útvonalát tárolja. -->
+                  <img width="48" data-2x="/dashboard/images/fastly-logo@2x.png" src="/dashboard/images/fastly-logo.png" />
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- Nagy képernyőn négy oszlopot használó rész a szerzői jogi feliratnak. -->
+          <div class="large-4 columns">
+            <p class="text-right">Copyright (c) 2015, Apache Friends</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

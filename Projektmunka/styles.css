@@ -1,0 +1,1599 @@
+/* =========================================================
+   TANULÁSI SEGÉDLET – A FÁJLBAN HASZNÁLT CSS PARANCSOK
+   =========================================================
+
+   szelektor { ... }       -> megadja, mely HTML-elemekre vonatkoznak a szabályok.
+   .nev                    -> class="nev" osztályú elemet választ ki.
+   #nev                    -> id="nev" azonosítójú elemet választ ki.
+   :root                   -> a dokumentum legfelső eleme; itt globális CSS-változókat tárolunk.
+   --nev: érték            -> egyedi CSS-változó létrehozása.
+   var(--nev)              -> egy korábban létrehozott CSS-változó értékének használata.
+   *                       -> univerzális szelektor, minden elemre vonatkozik.
+   width / height          -> szélesség / magasság.
+   min-width/min-height    -> legkisebb engedélyezett méret.
+   max-width/max-height    -> legnagyobb engedélyezett méret.
+   margin                  -> külső térköz az elem körül.
+   padding                 -> belső térköz a tartalom és a keret között.
+   box-sizing:border-box   -> a padding és border beleszámít a megadott méretbe.
+   display:flex            -> egydimenziós Flexbox elrendezést kapcsol be.
+   display:grid            -> rácsos Grid elrendezést kapcsol be.
+   align-items             -> elemek igazítása a keresztirányú tengelyen.
+   justify-content         -> elemek igazítása a főtengelyen.
+   gap                     -> távolság a flex/grid elemek között.
+   flex                    -> megadja, hogyan nőhet/zsugorodhat egy flex elem.
+   flex-wrap               -> engedélyezi vagy tiltja a flex elemek új sorba törését.
+   flex-direction          -> a flex elemek elrendezési iránya.
+   grid-template-columns   -> a Grid oszlopainak számát/méretét állítja be.
+   position:relative       -> viszonyítási alap lehet abszolút pozicionált gyermekeknek.
+   position:absolute       -> az elem kikerül a normál elrendezésből és pozicionálható.
+   position:fixed          -> az elem a böngészőablakhoz rögzül.
+   position:sticky         -> görgetéskor a megadott ponton rögzül.
+   top/right/bottom/left   -> pozicionált elem helyét adja meg.
+   z-index                 -> egymásra kerülő elemek rétegsorrendjét szabályozza.
+   overflow                -> a kilógó tartalom kezelését szabályozza.
+   color                   -> szövegszín.
+   background              -> háttér rövidített beállítása.
+   background-color        -> háttérszín.
+   background-image        -> háttérkép vagy színátmenet.
+   background-size:cover   -> a háttérképet úgy méretezi, hogy kitöltse a területet.
+   background-position     -> háttérkép igazítása.
+   background-repeat       -> háttérkép ismétlődésének szabályozása.
+   border                  -> keret.
+   border-radius           -> lekerekíti a sarkokat; 50% kör alakot adhat.
+   box-shadow              -> árnyékot rajzol az elem köré.
+   font-family             -> betűtípus.
+   font-size               -> betűméret.
+   font-weight             -> betűvastagság.
+   font-style              -> például normál vagy dőlt betű.
+   line-height             -> sorok közötti magasság/távolság.
+   text-align              -> szöveg vízszintes igazítása.
+   text-decoration         -> például aláhúzás ki-/bekapcsolása.
+   white-space             -> a szóközök és sortörések kezelését szabályozza.
+   opacity                 -> átlátszatlanság 0 és 1 között.
+   visibility              -> látható/rejtett állapot úgy, hogy az elem helye megmaradhat.
+   transform               -> mozgatás, forgatás, méretezés stb.
+   transition              -> animált átmenetet hoz létre két CSS-állapot között.
+   cursor:pointer          -> kéz alakú egérmutatót jelenít meg.
+   object-fit:cover        -> képet a doboz kitöltésére méretez, szükség esetén vágva.
+   :hover                  -> akkor érvényes, amikor az egér az elem fölött van.
+   :focus                  -> akkor érvényes, amikor egy mező fókuszt kap.
+   ::before                -> virtuális elemet hoz létre a kijelölt elem tartalma előtt.
+   :nth-child(...)         -> a testvérelemek közül pozíció alapján választ.
+   @media (...)            -> képernyőmérettől függő, reszponzív szabályokat tartalmaz.
+   calc(...)               -> CSS-ben végzett méretszámítás.
+   rgba(...)               -> RGB szín alfa/átlátszósági értékkel.
+   linear-gradient(...)    -> lineáris színátmenetet készít.
+   ========================================================= */
+
+/* =========================================================
+   PILATES WITH KATA
+   TELJES STÍLUSLAP
+   ========================================================= */
+
+
+/* =========================================================
+   1. SZÍNVÁLTOZÓK
+   ========================================================= */
+
+:root {
+
+    --bg: #f7f6f3;
+
+    --surface: #ffffff;
+
+    --accent: #7d5a50;
+
+    --accent-dark: #573d34;
+
+    --text: #2f2f2f;
+
+    --muted: #657075;
+
+}
+
+
+/* =========================================================
+   2. ALAPBEÁLLÍTÁSOK
+   ========================================================= */
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+/*
+ * A sticky fejléc miatt
+ * a menüponttal megnyitott szekció
+ * nem kerül a fejléc mögé.
+ */
+section {
+
+    scroll-margin-top: 100px;
+
+}
+
+
+body {
+
+    margin: 0;
+
+    padding: 0;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    color: var(--text);
+
+    line-height: 1.6;
+
+    background:
+        linear-gradient(
+            180deg,
+            #d8c3b0 0%,
+            #efe4d7 40%,
+            #faf7f2 70%,
+            #ffffff 100%
+        );
+
+}
+
+
+img {
+
+    display: block;
+
+    max-width: 100%;
+
+}
+
+
+/* =========================================================
+   3. KÖZPONTI KONTÉNER
+   ========================================================= */
+
+.container {
+
+    width:
+        calc(100% - 4rem);
+
+    max-width:
+        1700px;
+
+    margin:
+        0 auto;
+
+}
+
+
+/* =========================================================
+   4. FEJLÉC
+   ========================================================= */
+
+.site-header {
+
+    position:
+        sticky;
+
+    top:
+        0;
+
+    z-index:
+        100;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d8c3b0 0%,
+            #efe4d7 60%,
+            #ffffff 100%
+        );
+
+    border-bottom:
+        1px solid #e6e4df;
+
+}
+
+
+.header-inner {
+
+    min-height:
+        80px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        2rem;
+
+}
+
+
+/* =========================================================
+   5. MÁRKANÉV
+   ========================================================= */
+
+.brand {
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size:
+        2.2rem;
+
+    font-weight:
+        600;
+
+    white-space:
+        nowrap;
+
+}
+
+
+/* =========================================================
+   6. NAVIGÁCIÓ
+   ========================================================= */
+
+.main-nav {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        flex-end;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        0.7rem 1.25rem;
+
+}
+
+
+.main-nav a {
+
+    color:
+        var(--text);
+
+    text-decoration:
+        none;
+
+    font-size:
+        1.3rem;
+
+    font-weight:
+        600;
+
+    white-space:
+        nowrap;
+
+    transition:
+        color 0.2s ease;
+
+}
+
+
+.main-nav a:hover {
+
+    color:
+        var(--accent);
+
+}
+
+
+/* =========================================================
+   7. HAMBURGER MENÜ
+   ========================================================= */
+
+.hamburger {
+
+    display:
+        none;
+
+    border:
+        0;
+
+    background:
+        transparent;
+
+    padding:
+        0.5rem;
+
+    cursor:
+        pointer;
+
+}
+
+
+.hamburger span {
+
+    display:
+        block;
+
+    width:
+        28px;
+
+    height:
+        3px;
+
+    margin:
+        5px 0;
+
+    background:
+        var(--text);
+
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+
+}
+
+
+.hamburger.active span:nth-child(1) {
+
+    transform:
+        translateY(8px)
+        rotate(45deg);
+
+}
+
+
+.hamburger.active span:nth-child(2) {
+
+    opacity:
+        0;
+
+}
+
+
+.hamburger.active span:nth-child(3) {
+
+    transform:
+        translateY(-8px)
+        rotate(-45deg);
+
+}
+
+
+/* =========================================================
+   8. HERO / FŐOLDAL
+   ========================================================= */
+
+.hero {
+
+    position:
+        relative;
+
+    min-height:
+        calc(100vh - 80px);
+
+    overflow:
+        hidden;
+
+    background-color:
+        #edd8c6;
+
+    background-image:
+        url("hatter.png");
+
+    background-size:
+        cover;
+
+    background-position:
+        center;
+
+    background-repeat:
+        no-repeat;
+
+}
+
+
+/*
+ * Fekete függőleges sáv
+ * a hero közepén.
+ */
+.hero::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    bottom:
+        0;
+
+    left:
+        50%;
+
+    width:
+        6rem;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        #000000;
+
+    z-index:
+        1;
+
+}
+
+
+.hero-content {
+
+    position:
+        relative;
+
+    min-height:
+        calc(100vh - 80px);
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    z-index:
+        2;
+
+}
+
+
+/* =========================================================
+   9. HERO KÖR
+   ========================================================= */
+
+.hero-circle {
+
+    width:
+        19rem;
+
+    height:
+        19rem;
+
+    border-radius:
+        50%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        1.5rem;
+
+    background:
+        #000000;
+
+    color:
+        #ffffff;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, 0.35);
+
+}
+
+
+.hero-circle span {
+
+    display:
+        block;
+
+    font-size:
+        4.5rem;
+
+    font-weight:
+        600;
+
+    line-height:
+        0.9;
+
+    text-align:
+        center;
+
+}
+
+
+.hero-circle small {
+
+    display:
+        block;
+
+    margin-top:
+        0.4rem;
+
+    font-size:
+        0.5em;
+
+    font-weight:
+        500;
+
+}
+
+
+/* =========================================================
+   10. SZEKCIÓK
+   ========================================================= */
+
+.section {
+
+    padding:
+        4rem 0;
+
+}
+
+
+.section > .container {
+
+    padding:
+        2.5rem;
+
+    border:
+        1px solid #e6e4df;
+
+    border-radius:
+        1.5rem;
+
+    background:
+        linear-gradient(
+            135deg,
+            #efe4d7 0%,
+            #f7f1ea 45%,
+            #ffffff 100%
+        );
+
+    box-shadow:
+        0 8px 30px
+        rgba(0, 0, 0, 0.05);
+
+}
+
+
+/* =========================================================
+   11. KÉTOSZLOPOS SZEKCIÓ
+   ========================================================= */
+
+.section-layout {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        4rem;
+
+}
+
+
+.section-content,
+.section-image {
+
+    flex:
+        1;
+
+    min-width:
+        0;
+
+}
+
+
+.section-image img {
+
+    width:
+        100%;
+
+    height:
+        auto;
+
+    border-radius:
+        1rem;
+
+    object-fit:
+        cover;
+
+}
+
+
+/* =========================================================
+   12. TIPOGRÁFIA
+   ========================================================= */
+
+.section h2 {
+
+    margin-top:
+        0;
+
+    margin-bottom:
+        1rem;
+
+    font-size:
+        3.3rem;
+
+    font-style:
+        italic;
+
+    font-weight:
+        600;
+
+    line-height:
+        1.1;
+
+}
+
+
+.section h3 {
+
+    margin-top:
+        0;
+
+    font-size:
+        2rem;
+
+    font-style:
+        italic;
+
+    font-weight:
+        500;
+
+    line-height:
+        1.2;
+
+}
+
+
+.section p {
+
+    font-size:
+        1.35rem;
+
+    line-height:
+        1.6;
+
+}
+
+
+/* =========================================================
+   13. ÓRAKÁRTYÁK
+   ========================================================= */
+
+.cards {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    gap:
+        1.5rem;
+
+    margin-top:
+        2rem;
+
+}
+
+
+.card {
+
+    padding:
+        1.7rem;
+
+    background:
+        #ffffff;
+
+    border:
+        1px solid #e6e4df;
+
+    border-radius:
+        1rem;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.04);
+
+}
+
+
+.card h3 {
+
+    margin-top:
+        0;
+
+}
+
+
+/* =========================================================
+   14. JELENTKEZÉSI VISSZAJELZÉSEK
+   ========================================================= */
+
+
+/*
+ * A sikeres és sikertelen jelentkezés
+ * közös formázása.
+ */
+.form-message {
+
+    width:
+        100%;
+
+    margin:
+        1.5rem 0;
+
+    padding:
+        1rem 1.25rem;
+
+    border-radius:
+        0.8rem;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size:
+        1.2rem;
+
+    line-height:
+        1.5;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0, 0, 0, 0.04);
+
+}
+
+
+/*
+ * SIKERES JELENTKEZÉS
+ *
+ * Halványzöld háttér,
+ * zöld keret és szöveg.
+ */
+.success-message {
+
+    background:
+        #edf4ed;
+
+    color:
+        #3f6345;
+
+    border:
+        1px solid #a8c3a8;
+
+}
+
+
+/*
+ * SIKERTELEN JELENTKEZÉS
+ *
+ * Halványpiros háttér,
+ * piros keret és sötétpiros szöveg.
+ */
+.error-message {
+
+    background:
+        #f8e8e6;
+
+    color:
+        #873c36;
+
+    border:
+        1px solid #d6a19b;
+
+}
+
+
+/*
+ * Az üzenet címe:
+ *
+ * "Sikeres jelentkezés!"
+ * vagy
+ * "Sikertelen jelentkezés!"
+ */
+.form-message strong {
+
+    font-size:
+        1.3rem;
+
+    font-weight:
+        700;
+
+}
+
+
+/* =========================================================
+   15. JELENTKEZÉSI ŰRLAP
+   ========================================================= */
+
+.contact-form {
+
+    width:
+        100%;
+
+    max-width:
+        42rem;
+
+    display:
+        grid;
+
+    gap:
+        0.8rem;
+
+    margin-top:
+        1.5rem;
+
+}
+
+
+.contact-form label {
+
+    margin-top:
+        0.3rem;
+
+    font-size:
+        1.3rem;
+
+    font-weight:
+        600;
+
+}
+
+
+.contact-form input,
+.contact-form select {
+
+    width:
+        100%;
+
+    min-height:
+        52px;
+
+    padding:
+        0.8rem 1rem;
+
+    background:
+        #ffffff;
+
+    color:
+        var(--text);
+
+    border:
+        1px solid #d8d3ce;
+
+    border-radius:
+        0.8rem;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size:
+        1.2rem;
+
+}
+
+
+.contact-form input:focus,
+.contact-form select:focus {
+
+    outline:
+        none;
+
+    border-color:
+        var(--accent);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(125, 90, 80, 0.12);
+
+}
+
+
+/*
+ * Küldés gomb.
+ */
+.contact-form button {
+
+    width:
+        100%;
+
+    min-height:
+        52px;
+
+    margin-top:
+        0.6rem;
+
+    border:
+        0;
+
+    border-radius:
+        0.8rem;
+
+    background:
+        var(--accent);
+
+    color:
+        #ffffff;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size:
+        1.35rem;
+
+    font-weight:
+        600;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.2s ease;
+
+}
+
+
+.contact-form button:hover {
+
+    background:
+        var(--accent-dark);
+
+}
+
+
+/* =========================================================
+   16. LEADOTT JELENTKEZÉSEK TÁBLÁZATA
+   ========================================================= */
+
+.table-wrapper {
+
+    width:
+        100%;
+
+    overflow-x:
+        auto;
+
+    margin-top:
+        2rem;
+
+    border-radius:
+        1rem;
+
+}
+
+
+.applications-table {
+
+    width:
+        100%;
+
+    min-width:
+        1000px;
+
+    border-collapse:
+        collapse;
+
+    background:
+        #ffffff;
+
+    font-size:
+        1.05rem;
+
+}
+
+
+.applications-table th,
+.applications-table td {
+
+    padding:
+        0.9rem;
+
+    text-align:
+        left;
+
+    vertical-align:
+        middle;
+
+    border-bottom:
+        1px solid #e6e4df;
+
+}
+
+
+.applications-table th {
+
+    background:
+        var(--accent);
+
+    color:
+        #ffffff;
+
+    font-size:
+        1.1rem;
+
+    font-weight:
+        600;
+
+}
+
+
+.applications-table tbody tr:nth-child(even) {
+
+    background:
+        #faf7f2;
+
+}
+
+
+.applications-table tbody tr:hover {
+
+    background:
+        #f2e8de;
+
+}
+
+
+/* =========================================================
+   17. TÖRLÉS GOMB
+   ========================================================= */
+
+.delete-form {
+
+    margin:
+        0;
+
+}
+
+
+.delete-button {
+
+    border:
+        0;
+
+    border-radius:
+        0.6rem;
+
+    padding:
+        0.6rem 1rem;
+
+    background:
+        #8d4a42;
+
+    color:
+        #ffffff;
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size:
+        1rem;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.2s ease;
+
+}
+
+
+.delete-button:hover {
+
+    background:
+        #65322d;
+
+}
+
+
+/* =========================================================
+   18. KAPCSOLAT
+   ========================================================= */
+
+#contact a {
+
+    color:
+        var(--accent);
+
+    text-decoration:
+        none;
+
+    font-weight:
+        600;
+
+}
+
+
+#contact a:hover {
+
+    color:
+        var(--accent-dark);
+
+    text-decoration:
+        underline;
+
+}
+
+
+/* =========================================================
+   19. LÁBLÉC
+   ========================================================= */
+
+.site-footer {
+
+    padding:
+        2rem 0;
+
+    text-align:
+        center;
+
+    color:
+        var(--muted);
+
+    font-size:
+        1.1rem;
+
+}
+
+
+/* =========================================================
+   20. VISSZA A TETEJÉRE GOMB
+   ========================================================= */
+
+.back-to-top {
+
+    position:
+        fixed;
+
+    right:
+        1.25rem;
+
+    bottom:
+        1.25rem;
+
+    width:
+        3rem;
+
+    height:
+        3rem;
+
+    border:
+        0;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--accent);
+
+    color:
+        #ffffff;
+
+    font-size:
+        1.3rem;
+
+    cursor:
+        pointer;
+
+    opacity:
+        0;
+
+    visibility:
+        hidden;
+
+    transform:
+        translateY(10px);
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        transform 0.25s ease,
+        background 0.2s ease;
+
+    z-index:
+        200;
+
+}
+
+
+.back-to-top.visible {
+
+    opacity:
+        1;
+
+    visibility:
+        visible;
+
+    transform:
+        translateY(0);
+
+}
+
+
+.back-to-top:hover {
+
+    background:
+        var(--accent-dark);
+
+}
+
+
+/* =========================================================
+   21. TABLET NÉZET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .header-inner {
+
+        gap:
+            1rem;
+
+    }
+
+
+    .main-nav {
+
+        gap:
+            0.5rem 1rem;
+
+    }
+
+
+    .main-nav a {
+
+        font-size:
+            1.2rem;
+
+    }
+
+}
+
+
+@media (max-width: 1000px) {
+
+    .section-layout {
+
+        flex-direction:
+            column;
+
+        gap:
+            2rem;
+
+    }
+
+
+    .section-content,
+    .section-image {
+
+        width:
+            100%;
+
+    }
+
+
+    .cards {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+
+/* =========================================================
+   22. MOBIL / HAMBURGER MENÜ
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .container {
+
+        width:
+            calc(100% - 2rem);
+
+    }
+
+
+    .header-inner {
+
+        min-height:
+            70px;
+
+        flex-wrap:
+            wrap;
+
+    }
+
+
+    .brand {
+
+        font-size:
+            1.7rem;
+
+    }
+
+
+    .hamburger {
+
+        display:
+            block;
+
+    }
+
+
+    .main-nav {
+
+        display:
+            none;
+
+        width:
+            100%;
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+
+        gap:
+            0;
+
+        padding:
+            0.5rem 0 1rem;
+
+        border-top:
+            1px solid #d8d3ce;
+
+    }
+
+
+    .main-nav.open {
+
+        display:
+            flex;
+
+    }
+
+
+    .main-nav a {
+
+        display:
+            block;
+
+        width:
+            100%;
+
+        padding:
+            0.7rem 0.5rem;
+
+        font-size:
+            1.3rem;
+
+        border-bottom:
+            1px solid
+            rgba(
+                125,
+                90,
+                80,
+                0.12
+            );
+
+    }
+
+
+    .main-nav a:last-child {
+
+        border-bottom:
+            0;
+
+    }
+
+
+    .main-nav a:hover {
+
+        background:
+            rgba(
+                125,
+                90,
+                80,
+                0.07
+            );
+
+    }
+
+
+    .hero {
+
+        min-height:
+            70vh;
+
+    }
+
+
+    .hero-content {
+
+        min-height:
+            70vh;
+
+    }
+
+
+    .hero-circle {
+
+        width:
+            14rem;
+
+        height:
+            14rem;
+
+    }
+
+
+    .hero-circle span {
+
+        font-size:
+            3.3rem;
+
+    }
+
+
+    .hero::before {
+
+        width:
+            4.5rem;
+
+    }
+
+
+    .section {
+
+        padding:
+            2.5rem 0;
+
+    }
+
+
+    .section > .container {
+
+        padding:
+            1.5rem;
+
+    }
+
+
+    .section h2 {
+
+        font-size:
+            2.6rem;
+
+    }
+
+
+    .section h3 {
+
+        font-size:
+            1.7rem;
+
+    }
+
+
+    .section p {
+
+        font-size:
+            1.2rem;
+
+    }
+
+
+    /*
+     * A siker- és hibaüzenet
+     * mobilon is jól olvasható marad.
+     */
+    .form-message {
+
+        font-size:
+            1.1rem;
+
+        padding:
+            0.9rem 1rem;
+
+    }
+
+
+    .form-message strong {
+
+        font-size:
+            1.2rem;
+
+    }
+
+}
+
+
+/* =========================================================
+   23. KIS MOBIL
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .hero-circle {
+
+        width:
+            12rem;
+
+        height:
+            12rem;
+
+    }
+
+
+    .hero-circle span {
+
+        font-size:
+            2.8rem;
+
+    }
+
+
+    .section > .container {
+
+        padding:
+            1.2rem;
+
+    }
+
+
+    .brand {
+
+        font-size:
+            1.5rem;
+
+    }
+
+}
